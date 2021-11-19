@@ -33,7 +33,7 @@ ns= "\n\n"
 #m.digest()
 #m.digest_size
 #m.block_size
-
+#
 #print(m)
 
 s = hashlib.sha224(b"Nobody inspects the spammish repetition").hexdigest()
