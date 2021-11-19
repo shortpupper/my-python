@@ -1,0 +1,2 @@
+language = "bash\npython39"
+run = "sh run.sh"
