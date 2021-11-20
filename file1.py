@@ -111,8 +111,12 @@ def hashed_384(x):
 def hashlooping(x, y, z, a, h):
   hasher = "ERROR no input"
   if h=="1" or h=="224" or h=="256" or h=="384" or h=="blake2b" or h=="512":
+    lasshash = ""
     if h =="256":
       hasher = hashed_256(x)
+      lasshash += hasher
+      hasher2 = hashed_256(lasshash)
+
     pass
   else:
     print('ERROR code: 9 ')
@@ -143,7 +147,7 @@ def hashlooping(x, y, z, a, h):
         lasshash += var2
         hasprintedonce = True
       elif hasprintedonce == True:
-        var3 = hasher(lasshash)
+        var3 = hasher2
         if show == 0:
           print(var4+var3)
           lasshash += var3
