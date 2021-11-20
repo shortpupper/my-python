@@ -33,7 +33,7 @@ ns= "\n\n"
 #m.digest()
 #m.digest_size
 #m.block_size
-#
+
 #print(m)
 
 s = hashlib.sha224(b"Nobody inspects the spammish repetition").hexdigest()
@@ -61,6 +61,26 @@ def hashed(x):
   return hashs
   pass
 
+# x is what you want to loop y is how many times you want to loop it z is 0 or 1 if you want it in a var then you could use 0 or if you dont want it to show it if its in a var and 1 will make that so it does show in a var
+
+def hashlooping(x, y, z):
+  done = 0
+  i = 0
+  while i <= y:
+    if i == y:
+      done += 1
+      break
+    if z==1:
+      print(str(x))
+    elif z==0:
+      return ""
+    i += 1
+  if done == 1:
+    return str(y)
+
+
+
+
 
 #print(s+ns+s2+ns+s3+ns+str(h2)+ns+str(h3)+ns+dk2+ns+str(h4))
 
@@ -69,6 +89,9 @@ def hashed(x):
 hashing1 = "hello"
 hashing2 = hashed(hashing1)
 
-h = looping(hashing2, 4)
+
+
+
+hashlooping(hashing2, 4, 1)
 
 
