@@ -61,26 +61,56 @@ def hashed(x):
   return hashs
   pass
 
-# x is what you want to loop y is how many times you want to loop it z is 0 or 1 if you want it in a var then you could use 0 or if you dont want it to show it if its in a var and 1 will make that so it does show in a var
+# x is what you want to loop y is how many times you want to loop it z is 0 or 1 if you want it in a var then you could use 0 or if you dont want it to show it if its in a var and 1 will make that so it does show in a var. a means that if you want to see all the gens of the looped hash or if you want the frist a lassed hash 0 = all gens 1 = frist and last gen or if you want a specific gen then type in the numer exsapel "hashlooping(x,y,z, 5) output gen 1:.... gen 5:....." 
 
-def hashlooping(x, y, z):
+def hashlooping(x, y, z, a):
   done = 0
   i = 0
+  hasprintedonce = False
+  lasshash = ""
+  show = a
+  var6 = 1
+  var5 = y-1 # if loop=30 then this should be 29
+
   while i <= y:
-    if i == y:
+    var4 = "\nGen "+str(i+1)+":\n"
+    if i == y: #would tell how many times looped
       done += 1
       break
-    if z==1:
-      print(str(x))
-    elif z==0:
-      return ""
+    if z==1 or z=="on" or z=="n":
+      if hasprintedonce == False:
+        var2 = (str(x))
+        print(var4+var2)
+        lasshash += var2
+        hasprintedonce = True
+      elif hasprintedonce == True:
+        var3 = hashed(lasshash)
+        if show == 0:
+          print(var4+var3)
+          lasshash += var3
+        elif show == 1:
+          if var6 == var5:
+            print(var4+var3)
+          elif var6 < var5:
+            var6 += 1
+          else:
+            print('ERROR code: 1 ')
+          lasshash += var3
+        else:
+          print('ERROR code: 2')
+      else:
+        print('ERROR code: 3')
+    elif z==0 or z=="off" or z=="f":
+      pass
+    else:
+      print('ERROR code: 4')
     i += 1
   if done == 1:
-    return str(y)
+    return ""#var6
 
 
-
-
+getspace = "\n\n\n\n\n\n\n\n"
+gs = getspace
 
 #print(s+ns+s2+ns+s3+ns+str(h2)+ns+str(h3)+ns+dk2+ns+str(h4))
 
@@ -90,8 +120,7 @@ hashing1 = "hello"
 hashing2 = hashed(hashing1)
 
 
+var1 = hashlooping(hashing2, 30, 1, 1)
 
 
-hashlooping(hashing2, 4, 1)
-
-
+print(str(var1)+gs)
