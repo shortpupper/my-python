@@ -1,6 +1,6 @@
 import hashlib
 from hashlib import blake2b
-import random
+from random import randrange
 
 def looping(x, y):
   done = 0
@@ -76,43 +76,58 @@ h2 = h.hexdigest()
 h3 = len(h.digest())
 h4 = len(h2)
 
+
+# x is what you want to loop y is how many times you want to loop it z is 0 or 1 if you want it in a var then you could use 0 or if you dont want it to show it if its in a var and 1 will make that so it does show in a var. a means that if you want to see all the gens of the looped hash or if you want the frist a lassed hash 0 = all gens 1 = frist and last gen or if you want a specific gen then type in the numer exsapel "hashlooping(x,y,z, 5) output gen 1:.... gen 5:....." 
+
+#hashed_256("hello")
 def hashed_blake2b(x):
   hashs = blake2b(digest_size=64)
   hashs.update(x.encode('utf-8'))
   hashs = hashs.hexdigest()
   return hashs
   pass
-def hashed_512(x):
-  hashs = hashlib.sha512(x.encode('utf-8')).hexdigest()
-  return hashs
-  pass
-def hashed_256(x):
-  hashs = hashlib.sha256(x.encode('utf-8')).hexdigest()
-  return hashs
-  pass
-def hashed_224(x):
-  hashs = hashlib.sha224(x.encode('utf-8')).hexdigest()
-  return hashs
-  pass
-def hashed_128(x):
-  hashs = hashlib.sha128(x.encode('utf-8')).hexdigest()
-  return hashs
-  pass
-def hashed_384(x):
-  hashs = hashlib.sha384(x.encode('utf-8')).hexdigest()
-  return hashs
-  pass
-def hashed_1(x):
-  hashs = hashlib.sha1(x.encode('utf-8')).hexdigest()
-  return hashs
-  pass
-# x is what you want to loop y is how many times you want to loop it z is 0 or 1 if you want it in a var then you could use 0 or if you dont want it to show it if its in a var and 1 will make that so it does show in a var. a means that if you want to see all the gens of the looped hash or if you want the frist a lassed hash 0 = all gens 1 = frist and last gen or if you want a specific gen then type in the numer exsapel "hashlooping(x,y,z, 5) output gen 1:.... gen 5:....." 
-
-#hashed_256("hello")
 
 #print(hashlib.sha256(b"Nobody inspects the spammish repetition").hexdigest())
 
 def hashlooping(x, y, z, a, h):
+  import hashlib
+  from hashlib import blake2b
+  #from random import randrange
+  #from random import random, randrange
+  wordtohash = x
+  howmanytimestohash = y
+  unused = z
+  
+  def hashed_blake2b(x):
+    hashs = blake2b(digest_size=64)
+    hashs.update(x.encode('utf-8'))
+    hashs = hashs.hexdigest()
+    return hashs
+    pass
+  def hashed_512(x):
+    hashs = hashlib.sha512(x.encode('utf-8')).hexdigest()
+    return hashs
+    pass
+  def hashed_256(x):
+    hashs = hashlib.sha256(x.encode('utf-8')).hexdigest()
+    return hashs
+    pass
+  def hashed_224(x):
+    hashs = hashlib.sha224(x.encode('utf-8')).hexdigest()
+    return hashs
+    pass
+  def hashed_128(x):
+    hashs = hashlib.sha128(x.encode('utf-8')).hexdigest()
+    return hashs
+    pass
+  def hashed_384(x):
+    hashs = hashlib.sha384(x.encode('utf-8')).hexdigest()
+    return hashs
+    pass
+  def hashed_1(x):
+    hashs = hashlib.sha1(x.encode('utf-8')).hexdigest()
+    return hashs
+    pass
   hasher = "ERROR no input"
   if h=="1" or h=="224" or h=="256" or h=="384" or h=="blake2b" or h=="512":
     lasshash = ""
@@ -156,7 +171,7 @@ def hashlooping(x, y, z, a, h):
   elif a >= 0:
     var7 = a-1
   var8 = 2
-  var9 = random.randrange(2, y)
+  var9 = randrange(var8, y) #cange random.randrange to randrange
   wr(1)
   while i <= y:
     var4 = "\nGen "+str(i+1)+":\n"
@@ -213,7 +228,7 @@ def hashlooping(x, y, z, a, h):
             wr(6)
             print('ERROR code: "exceeds max gen" ')
           else:
-            wr(6)
+            wr(14)
             print('ERROR code: 5 ')#print('code: 1 ')
             
           lasshash += var3
@@ -243,11 +258,6 @@ gs = getspace
 hashing1 = "hello"
 hashing2 = hashed_blake2b(hashing1)
 
-var1 = hashlooping("hello", 600, 1, 100, "256")
-#var2 = hashlooping("hello", 600, 1, 100, "512")
+var1 = hashlooping("hello", 4, 1, 2, "256")
 
-p1 = str(var1)+gs
-#p2 = str(var2)+gs
-
-#print(p1)
-#print(p2)
+print(var1)
