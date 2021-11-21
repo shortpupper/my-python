@@ -1,7 +1,6 @@
 from file1 import hashlooping
-from random import randrange
-#hashlooping("hello", 1, 1, 100, "256")
+#hashlooping("hello", 600, 1, 2, "256")
 
-v1 = randrange(0, 100)
+v1 = hashlooping("hello", 600, 1, 2, "256")
 
 print(v1)

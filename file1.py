@@ -1,6 +1,6 @@
 import hashlib
 from hashlib import blake2b
-from random import randrange
+
 
 def looping(x, y):
   done = 0
@@ -89,14 +89,24 @@ def hashed_blake2b(x):
 
 #print(hashlib.sha256(b"Nobody inspects the spammish repetition").hexdigest())
 
-def hashlooping(x, y, z, a, h):
+def hashlooping(wordtohash, howmanytimestohash, unused, whatgen, whathash):
   import hashlib
   from hashlib import blake2b
+  from random import randrange
+  getspace = "\n\n\n\n\n\n\n\n"
+  gs = getspace
   #from random import randrange
   #from random import random, randrange
-  wordtohash = x
-  howmanytimestohash = y
-  unused = z
+  #wordtohash = x
+  #howmanytimestohash = y
+  #unused = z
+  #whatgen = a
+  #whathash = h
+  x = wordtohash
+  y = howmanytimestohash
+  z = unused
+  a = whatgen
+  h = whathash
   
   def hashed_blake2b(x):
     hashs = blake2b(digest_size=64)
@@ -169,23 +179,20 @@ def hashlooping(x, y, z, a, h):
   if a == "r" or a == "random":
     var7 = ""
   elif a >= 0:
-    var7 = a-1
+    var7 = a
   var8 = 2
   var9 = randrange(var8, y) #cange random.randrange to randrange
   wr(1)
   while i <= y:
-    var4 = "\nGen "+str(i+1)+":\n"
-    if i == y: #would tell how many times looped
-      done += 1
-      wr(2)
-      break
     if z==1 or z=="on" or z=="n":
       if hasprintedonce == False:
+        var4 = "\nGen "+str(i+1)+":\n"
         var2 = (str(hasher))
         print(var4+var2)
         lasshash += var2
         hasprintedonce = True
       elif hasprintedonce == True:
+        var4 = "\nGen "+str(i)+":\n"
         var3 = hasher2
         if show == 0:
           print(var4+var3)
@@ -213,7 +220,7 @@ def hashlooping(x, y, z, a, h):
             print('ERROR code: 8 ')#print('code: 1 ')
           lasshash += var3
           wr(13)
-        elif show >= 2:
+        elif show > 1:
           wr(3)
           if i == var7 and i <= var5 and i >=var8: # if 0..y == y-1
           #if 6 >= 2 and 6 <= 29
@@ -258,6 +265,12 @@ gs = getspace
 hashing1 = "hello"
 hashing2 = hashed_blake2b(hashing1)
 
-var1 = hashlooping("hello", 4, 1, 2, "256")
+#var1 = hashlooping("hello", 400, 1, 3, "256")
+#
+#print(var1)
 
-print(var1)
+#var1 = hashlooping("hello", 600, 1, 2, "256")
+#p1 = str(hashlooping("hello", 600, 1, 2, "256"))+gs
+
+#xs = str(hashlooping("hello", 600, 1, 2, "256"))+gs
+#print(xs)
