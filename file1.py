@@ -99,7 +99,11 @@ def hashed_128(x):
   return hashs
   pass
 def hashed_384(x):
-  hashs = hashlib.sha2384(x.encode('utf-8')).hexdigest()
+  hashs = hashlib.sha384(x.encode('utf-8')).hexdigest()
+  return hashs
+  pass
+def hashed_1(x):
+  hashs = hashlib.sha1(x.encode('utf-8')).hexdigest()
   return hashs
   pass
 # x is what you want to loop y is how many times you want to loop it z is 0 or 1 if you want it in a var then you could use 0 or if you dont want it to show it if its in a var and 1 will make that so it does show in a var. a means that if you want to see all the gens of the looped hash or if you want the frist a lassed hash 0 = all gens 1 = frist and last gen or if you want a specific gen then type in the numer exsapel "hashlooping(x,y,z, 5) output gen 1:.... gen 5:....." 
@@ -116,7 +120,27 @@ def hashlooping(x, y, z, a, h):
       hasher = hashed_256(x)
       lasshash += hasher
       hasher2 = hashed_256(lasshash)
-
+    elif h =="512":
+      hasher = hashed_512(x)
+      lasshash += hasher
+      hasher2 = hashed_512(lasshash)
+    elif h =="1":
+      hasher = hashed_1(x)
+      lasshash += hasher
+      hasher2 = hashed_1(lasshash)
+    elif h =="128":
+      hasher = hashed_128(x)
+      lasshash += hasher
+      hasher2 = hashed_128(lasshash)
+    elif h =="224":
+      hasher = hashed_224(x)
+      lasshash += hasher
+      hasher2 = hashed_224(lasshash)
+    elif h =="384":
+      hasher = hashed_384(x)
+      lasshash += hasher
+      hasher2 = hashed_384(lasshash)
+    pass
     pass
   else:
     print('ERROR code: 9 ')
@@ -219,7 +243,11 @@ gs = getspace
 hashing1 = "hello"
 hashing2 = hashed_blake2b(hashing1)
 
-var1 = hashlooping("hello", 600, 1, "r", "256")
+var1 = hashlooping("hello", 600, 1, 100, "256")
+#var2 = hashlooping("hello", 600, 1, 100, "512")
 
+p1 = str(var1)+gs
+#p2 = str(var2)+gs
 
-print(str(var1)+gs)
+#print(p1)
+#print(p2)
