@@ -138,8 +138,11 @@ def hashlooping(wordtohash, howmanytimestohash, unused, whatgen, whathash):
     hashs = hashlib.sha1(x.encode('utf-8')).hexdigest()
     return hashs
     pass
+  def hashed_none(x):
+    return x
+    pass
   hasher = "ERROR no input"
-  if h=="1" or h=="224" or h=="256" or h=="384" or h=="blake2b" or h=="512":
+  if h=="-1" or h=="1" or h=="224" or h=="256" or h=="384" or h=="blake2b" or h=="512":
     lasshash = ""
     if h =="256":
       hasher = hashed_256(x)
@@ -165,12 +168,19 @@ def hashlooping(wordtohash, howmanytimestohash, unused, whatgen, whathash):
       hasher = hashed_384(x)
       lasshash += hasher
       hasher2 = hashed_384(lasshash)
+    elif h =="-1":
+      hasher = hashed_none(x)
+      lasshash += hasher
+      hasher2 = hashed_none(lasshash)
     pass
     pass
   else:
     print('ERROR code: 9 ')
   done = 0
-  i = 0
+  if z == -1:
+    i = -1
+  elif z == 1:
+    i = 0
   hasprintedonce = False
   lasshash = ""
   show = a
@@ -181,10 +191,17 @@ def hashlooping(wordtohash, howmanytimestohash, unused, whatgen, whathash):
   elif a >= 0:
     var7 = a
   var8 = 2
+  failsafe = 0
   var9 = randrange(var8, y) #cange random.randrange to randrange
   wr(1)
   while i <= y:
-    if z==1 or z=="on" or z=="n":
+    if failsafe == 32:
+      return  "FAILSAFE INGAED STOPING NOW"
+    if z == (-1):
+      var4 = "\nGen "+str(i)+":\n"
+      var3 = hasher2
+      return var4+var3
+    elif z==1 or z=="on" or z=="n":
       if hasprintedonce == False:
         var4 = "\nGen "+str(i+1)+":\n"
         var2 = (str(hasher))
@@ -237,22 +254,18 @@ def hashlooping(wordtohash, howmanytimestohash, unused, whatgen, whathash):
           else:
             wr(14)
             print('ERROR code: 5 ')#print('code: 1 ')
-            
           lasshash += var3
           wr(7)
-        
         else:
           print('ERROR code: 2')
       else:
         print('ERROR code: 3')
     elif z==0 or z=="off" or z=="f":
       pass
-    else:
-      print('ERROR code: 4')
-    i += 1
+    failsafe += 1
   if done == 1:
     return ""#var6
-
+#
 
 getspace = "\n\n\n\n\n\n\n\n"
 gs = getspace
