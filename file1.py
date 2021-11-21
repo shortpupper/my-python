@@ -141,9 +141,10 @@ def hashlooping(wordtohash, howmanytimestohash, unused, whatgen, whathash):
   def hashed_none(x):
     return x
     pass
+  
   hasher = "ERROR no input"
-  lasshash = ""
   if h=="-1" or h=="1" or h=="224" or h=="256" or h=="384" or h=="blake2b" or h=="512":
+    lasshash = ""
     if h =="256":
       hasher = hashed_256(x)
       lasshash += hasher
@@ -196,7 +197,7 @@ def hashlooping(wordtohash, howmanytimestohash, unused, whatgen, whathash):
   wr(1)
   while i <= y:
     if failsafe == y:
-      return  "FAILSAFE HAS BIN ACTIVEAED"
+      return  "FAILSAFE HAS BEEN ACTIVEAED"
     if z == (-1):
       var4 = "\nGen "+str(i)+":\n"
       var32 = hasher2
