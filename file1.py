@@ -142,8 +142,8 @@ def hashlooping(wordtohash, howmanytimestohash, unused, whatgen, whathash):
     return x
     pass
   hasher = "ERROR no input"
+  lasshash = ""
   if h=="-1" or h=="1" or h=="224" or h=="256" or h=="384" or h=="blake2b" or h=="512":
-    lasshash = ""
     if h =="256":
       hasher = hashed_256(x)
       lasshash += hasher
@@ -196,11 +196,11 @@ def hashlooping(wordtohash, howmanytimestohash, unused, whatgen, whathash):
   wr(1)
   while i <= y:
     if failsafe == y:
-      return  "FAILSAFE INGAED STOPING NOW"
+      return  "FAILSAFE HAS BIN ACTIVEAED"
     if z == (-1):
       var4 = "\nGen "+str(i)+":\n"
-      var3 = hasher2
-      return var4+var3
+      var32 = hasher2
+      return var4+var32
     elif z==1 or z=="on" or z=="n":
       if hasprintedonce == False:
         var4 = "\nGen "+str(i+1)+":\n"
@@ -209,7 +209,7 @@ def hashlooping(wordtohash, howmanytimestohash, unused, whatgen, whathash):
         lasshash += var2
         hasprintedonce = True
       elif hasprintedonce == True:
-        var4 = "\nGen "+str(i)+":\n"
+        var4 = "\nGen "+str(i+1)+":\n"
         var3 = hasher2
         if show == 0:
           print(var4+var3)
