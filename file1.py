@@ -195,7 +195,7 @@ def hashlooping(wordtohash, howmanytimestohash, unused, whatgen, whathash):
   var9 = randrange(var8, y) #cange random.randrange to randrange
   wr(1)
   while i <= y:
-    if failsafe == 32:
+    if failsafe == y:
       return  "FAILSAFE INGAED STOPING NOW"
     if z == (-1):
       var4 = "\nGen "+str(i)+":\n"
@@ -263,6 +263,7 @@ def hashlooping(wordtohash, howmanytimestohash, unused, whatgen, whathash):
     elif z==0 or z=="off" or z=="f":
       pass
     failsafe += 1
+    i += 1
   if done == 1:
     return ""#var6
 #
